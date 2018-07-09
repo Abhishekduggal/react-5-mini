@@ -23,7 +23,7 @@ class App extends Component {
     return (
       <div className="app">
         <section className="counter">
-          <h1 className="counter__current-value">{0}</h1>
+          <h1 className="counter__current-value">{this.props.currentValue}</h1>
           <div className="counter__button-wrapper">
             <button
               className="counter__button increment-one"

@@ -1,3 +1,8 @@
+//Constants (Action Types)
+//Action Creators
+// Initial State
+// Reducer
+
 const initialState = {
   currentValue: 0,
   futureValues: [],
@@ -17,12 +22,26 @@ export default function counter(state = initialState, action) {
         futureValues: [],
         previousValues: [state.currentValue, ...state.previousValues]
       };
+
+    // ES2018 use spread operator for Objects
+    // case INCREMENT:
+    //   return {
+    //     ...state,
+    //     currentValue: state.currentValue + action.payload
+
     case DECREMENT:
       return {
         currentValue: state.currentValue - action.amount,
         futureValues: [],
         previousValues: [state.currentValue, ...state.previousValues]
       };
+
+    // ES2018 use spread operator for Objects
+    // case DECREMENT:
+    //   return {
+    //     ...state,
+    //     currentValue: state.currentValue - action.payload
+
     case UNDO:
       return {
         currentValue: state.previousValues[0],
@@ -43,6 +62,7 @@ export default function counter(state = initialState, action) {
 export function increment(amount) {
   return { amount, type: INCREMENT };
 }
+// Type and Payload setup above!
 
 export function decrement(amount) {
   return { amount, type: DECREMENT };
